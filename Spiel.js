@@ -1,11 +1,12 @@
 var Spielaufbau = {
     Grösse: [ 1000, 600 ],
-    Möbel: {
-        // links, unten, z, breite, höhe
-        Tisch: [ 0, 0, 30, 313, 161 ],
-        Stuhlsitz: [ 400, 0, 20, 108, 87 ],
-        Stuhllehne: [ 400, 87, 10, 75, 74 ]
-    },
+    Möbel: [
+        // Name, links, unten, z, breite, höhe
+        [ "Tisch", 0, 0, 30, 313, 161 ],
+        [ "Stuhlsitz", 400, 0, 30, 108, 87 ],
+        [ "Stuhllehne", 400, 87, 10, 75, 74 ],
+        [ "Sofa", 600, 0, 25,314,116 ]
+    ],
     Teddy: [ 800, 500, 25, 44, 62 ]
 }
 
@@ -18,9 +19,8 @@ class Spiel {
     aufbauen() {
         this.teddy = new Teddy(Spielaufbau.Teddy[0], Spielaufbau.Teddy[1], Spielaufbau.Teddy[2], Spielaufbau.Teddy[3], Spielaufbau.Teddy[4], this);
         this.alleMöbel = [ ];
-        for (const name in Spielaufbau.Möbel) {
-            const möbel = Spielaufbau.Möbel[name];
-            this.alleMöbel.push(new Möbel(name, möbel[0], möbel[1], möbel[2], möbel[3], möbel[4]));
+        for (const möbel of Spielaufbau.Möbel) {
+            this.alleMöbel.push(new Möbel(möbel[0], möbel[1], möbel[2], möbel[3], möbel[4], möbel[5]));
         }
     }
 
