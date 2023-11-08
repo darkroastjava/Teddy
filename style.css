@@ -1,0 +1,18 @@
+#Welt {
+    margin: 40px auto;
+    background-color: #efefef;
+    position: relative;    
+}
+
+.Objekt {
+    position: absolute;
+}
+
+.Objekt > img {
+    width: 100%;
+    height: 100%;
+}
+
+#Möbel {
+    display: none;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Teddy</title>
+        <link rel="stylesheet" href="style.css" />
+        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    </head>
+    <body>
+        <div id="Welt">
+            <div id="Teddy" class="Objekt">
+                <img src="Bilder/Teddy.png" />
+            </div>
+
+            <!-- Dies ist nur eine Kopiervorlage. Für jedes Möbel wird das Element kopiert und umbenannt -->
+            <div id="Möbel" class="Objekt">
+                <img src="Bilder/Möbel.png" />
+            </div>
+        </div>
+    </body>
+    <script type="text/javascript" src="Teddy.js"></script>
+    <script type="text/javascript" src="Möbel.js"></script>
+    <script type="text/javascript" src="Spiel.js"></script>
+
+    <script type="text/javascript">
+        let spiel = new Spiel(1000, 600);
+        spiel.aufbauen();
+
+        let spielDarsteller = new SpielDarsteller(spiel, document);
+        spielDarsteller.aufbauen();
+        spielDarsteller.darstellen();
+
+        let spielSteuerung = new SpielSteuerung(spiel, spielDarsteller, window);
+        spielSteuerung.einrichten();
+        spielSteuerung.starteTimer();
+
+    </script>
+
+</html>
