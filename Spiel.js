@@ -1,10 +1,19 @@
+
+var Stuhl = function(links, unten, z, breite, höhe) {
+    var Sitzhöhe = 87 / 161 * höhe;
+    var Lehnenbreite = 75 / 108 * breite;
+    return [
+        [ "Stuhlsitz", links, unten, z + 10, breite, Sitzhöhe ],
+        [ "Stuhllehne", links, unten + Sitzhöhe, z - 10, Lehnenbreite, 74 ]
+    ];
+};
+
 var Spielaufbau = {
     Grösse: [ 1000, 600 ],
     Möbel: [
         // Name, links, unten, z, breite, höhe
         [ "Tisch", 0, 0, 30, 313, 161 ],
-        [ "Stuhlsitz", 400, 0, 30, 108, 87 ],
-        [ "Stuhllehne", 400, 87, 10, 75, 74 ],
+        Stuhl(400, 0, 20, 108, 161) [0], Stuhl(400, 0, 20, 108, 161) [1],
         [ "Sofa", 600, 0, 25,314,116 ]
     ],
     Teddy: [ 800, 500, 25, 44, 62 ]
