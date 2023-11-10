@@ -4,19 +4,20 @@ var Spielaufbau = {
         // [ name, links, unten, z, breite, höhe ]
         [ "Tisch", 0, 0, 30, 313, 161 ],
         [ "Stuhl", 350, 0, 20, 108, 161 ],
-        [ "Sofa", 500, 0, 20, 320, 204]
+        [ "Stuhl", 800, 6, 20, 108, 161 ],
+        [ "Sofa", 500, 0, 20, 250, 250 * 307 / 479 ]
     ],
     // [ links, unten, z, breite, höhe ]
-    Teddy: [ 800, 500, 25, 44, 62 ]
+    Teddy: [ 860, 93, 25, 44, 62 ]
 }
 
 
 
 var ZusammengesetzteMöbelvorlagen = {
     Stuhl: [
-        // [ name, links, unten, z, breite, höhe ]
-        [ "Stuhlsitz", 0, 0, 2, 108, 87 ],
-        [ "Stuhllehne", 0, 87, -2, 75, 74 ]
+        // [ name,              links,  unten,  z,  breite, höhe ]
+        [ "Stuhlsitz",          0,      0,      2,  108,    87 ],
+        [ "Stuhllehne",         0,      87,     -2, 75,     74 ]
     ],
     Sofa: [
         // [ name,              links,  unten,  z,  breite, höhe ]
