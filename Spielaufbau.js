@@ -19,8 +19,11 @@ var ZusammengesetzteMöbelvorlagen = {
         [ "Stuhllehne", 0, 87, -2, 75, 74 ]
     ],
     Sofa: [
-        [ "Sofalehne", 0, 178, 0, 479, 129 ],
-        [ "Sofasitz", 0, 0, 2, 479, 178 ]
+        // [ name,              links,  unten,  z,  breite, höhe ]
+        [ "Sofalehne",          68,     176,    0,  411,    131 ],
+        [ "Sofasitz",           68,     0,      2,  356,    176 ],
+        [ "SofaArmlehneLinks",  0,      0,      2,  68,     240 ],
+        [ "SofaArmlehneRechts", 424,    0,      2,  55,     237 ]
     ]
 };
 
