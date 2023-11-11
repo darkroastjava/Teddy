@@ -1,7 +1,6 @@
 class Spiel {
     constructor() {
-        this.breite = Spielaufbau.Grösse[0];
-        this.höhe = Spielaufbau.Grösse[1];
+        [ this.links, this.breite, this.höhe ] = Spielaufbau.Welt
     }
 
     aufbauen() {
@@ -48,6 +47,7 @@ class SpielDarsteller {
 
     aufbauen() {
         this.divWelt = this.document.getElementById("Welt");
+        this.divWelt.style.left = this.spiel.links + "px";
         this.divWelt.style.width = this.spiel.breite + "px";
         this.divWelt.style.height = this.spiel.höhe + "px";
     
@@ -61,6 +61,7 @@ class SpielDarsteller {
     }
 
     darstellen() {
+        this.divWelt.style.left = this.spiel.links + "px";
         this.teddyDarsteller.darstellen();
         for (let i = 0; i < this.alleMöbelDarsteller.length; i++) {
             const MöbelDarsteller = this.alleMöbelDarsteller[i];

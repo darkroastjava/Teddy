@@ -39,6 +39,12 @@ class Teddy {
         if (this.links < 0) { this.links = 0; }
         if (this.links > this.spiel.breite - this.breite) { this.links = this.spiel.breite - this.breite }
 
+        if (this.links < 1000) {
+            this.spiel.links = 0;
+        } else {
+            this.spiel.links = -1000;
+        }
+
         if (this.amSpringen > 0) {
             this.unten += this.amSpringen / 2;
             this.amSpringen -= 1;

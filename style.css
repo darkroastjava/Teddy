@@ -1,5 +1,13 @@
-#Welt {
+#Spiel {
     margin: 40px auto;
+    position: relative;
+    width: 1000px;
+    height: 600px;
+    overflow: hidden;
+}
+
+#Welt {
+    transition: left 0.5s;
     background-color: #efefef;
     position: relative;    
 }
