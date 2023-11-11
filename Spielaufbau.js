@@ -1,16 +1,27 @@
 var Spielaufbau = {
     // [ links, breite, höhe ]
-    Welt: [ -1000, 2000, 600 ],
+    Welt: [ -2000, 3000, 600 ],
+
     Möbel: [
-        // [ name, links, unten, z, breite, höhe ]
-        [ "Tisch", 1000, 0, 30, 313, 161 ],
-        [ "Stuhl", 1350, 0, 20, 108, 161 ],
-        [ "Stuhl", 1800, 6, 20, 108, 161 ],
-        [ "Sofa", 1500, 0, 20, 250, 250 * 307 / 479 ],
-        [ "Geländer", 100, 0, 20, 824, 195 ]
+        // ---- Wohnzimmer ----
+        // [ name,      links,  unten,  z,  breite, höhe ]
+        [   "Tisch",    2000,   0,      30, 313,    161 ],
+        [   "Stuhl",    2350,   0,      20, 108,    161 ],
+        [   "Stuhl",    2800,   6,      20, 108,    161 ],
+        [   "Sofa",     2500,   0,      20, 250,    250 * 307 / 479 ],
+
+        // ---- Gang ----
+        // [ name,      links,  unten,  z,  breite, höhe ]
+        [   "Geländer", 1100,   0,      20, 824,    195 ],
+
+        // ---- Kinderzimmer ----
+        // [ name,      links,  unten,  z,  breite, höhe ]
+        [   "Hängematte", 200,  100,    10, 200,    200 * 646 / 522 ],
+        [   "Bett",       0,    0,      0,  533,  430 ],
+
     ],
-    // [ links, unten, z, breite, höhe ]
-    Teddy: [ 1860, 93, 25, 44, 62 ]
+    // [        links,  unten,  z,  breite, höhe ]
+    Teddy: [    2860,   93,     25, 44,     62 ]
 }
 
 

@@ -10,6 +10,7 @@ class Teddy {
         this.breite = breite;
         this.höhe = höhe;
         this.spiel = spiel;
+        this.tempo = 1;
 
         this.amLaufen = Teddy.NEIN;
         this.amSpringen = Teddy.NEIN;
@@ -35,14 +36,16 @@ class Teddy {
     }
 
     bewegen() {
-        this.links += this.amLaufen;
+        this.links += this.amLaufen * this.tempo;
         if (this.links < 0) { this.links = 0; }
         if (this.links > this.spiel.breite - this.breite) { this.links = this.spiel.breite - this.breite }
 
-        if (this.links < 1000) {
-            this.spiel.links = 0;
-        } else {
+        if (this.links > 2000) {
+            this.spiel.links = -2000;
+        } else if (this.links > 1000) {
             this.spiel.links = -1000;
+        } else {
+            this.spiel.links = 0;
         }
 
         if (this.amSpringen > 0) {

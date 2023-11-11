@@ -87,6 +87,21 @@ class SpielSteuerung {
         this.window.onkeyup = (event) => {
             this.teddySteuerung.tasteLosgelassen(event.key);
         };
+
+        this.window.onkeypress = (event) => {
+            if (event.key == "s") {
+                this.spiel.teddy.tempo = 3;
+            } else if (event.key == "1") {
+                this.spiel.teddy.links = 500;
+                this.spiel.teddy.unten = 300;
+            } else if (event.key == "2") {
+                this.spiel.teddy.links = 1500;
+                this.spiel.teddy.unten = 300;
+            } else if (event.key == "3") {
+                this.spiel.teddy.links = 2500;
+                this.spiel.teddy.unten = 300;
+            }
+        }
     }
 
     starteTimer() {
