@@ -17,7 +17,7 @@ var Spielaufbau = {
         // ---- Kinderzimmer ----
         // [ name,      links,  unten,  z,  breite, höhe ]
         [   "Hängematte", 200,  100,    10, 200,    200 * 646 / 522 ],
-        [   "Bett",       0,    0,      0,  533,  430 ],
+        [   "Bett",       0,    0,      0,  533,    430 ],
 
     ],
     // [        links,  unten,  z,  breite, höhe ]
@@ -38,6 +38,16 @@ var ZusammengesetzteMöbelvorlagen = {
         [ "Sofasitz",           68,     0,      2,  356,    176 ],
         [ "SofaArmlehneLinks",  0,      0,      2,  68,     240 ],
         [ "SofaArmlehneRechts", 424,    0,      2,  55,     237 ]
+    ],
+    Bett: [
+    
+        [ "Bett",               0,      0,      0,  1067,   861 ],  
+        [ "BettSchublade1",     160,    0,      8,  256,    181 ],
+        [ "BettSchublade2",     124,    181,    5,  242,    176 ],
+        [ "BettSchublade3",     82,     357,    2,  218,    158 ],
+        [ "BettSchublade4",     38,     543,    0,  214,    144 ],
+        [ "BettGeländer",       0,      0,      26, 209,    859 ]
+
     ]
 };
 
