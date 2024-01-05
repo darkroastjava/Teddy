@@ -18,7 +18,7 @@ var Spielaufbau = {
         // [ name,      links,  unten,  z,  breite, höhe ]
         [   "Hängematte", 200,  100,    10, 200,    200 * 646 / 522 ],
         [   "Bett",       0,    0,      0,  533,    430 ],
-
+        [   "Bücherregal",700,  0,      5,  216,    430 ]
     ],
     // [        links,  unten,  z,  breite, höhe ]
     Teddy: [    2860,   93,     25, 44,     62 ]
