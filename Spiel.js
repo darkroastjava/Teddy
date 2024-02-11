@@ -28,10 +28,10 @@ class Spiel {
             }
         }
 
-        this.AllePlüschtiere = [ ];
+        this.allePlüschtiere = [ ];
         for (const plüschtier of Spielaufbau.Plüschtiere) {
             [ name, links, unten, z, breite, höhe ] = plüschtier;
-            this.AllePlüschtiere.push(new Plüschtier(name, links, unten, z, breite, höhe));
+            this.allePlüschtiere.push(new Plüschtier(name, links, unten, z, breite, höhe));
         }
     }
 
@@ -40,6 +40,15 @@ class Spiel {
 
         if (this.teddy.stehtAufBoden()) {
             document.getElementById("Verloren").style.display = "block";
+        }
+
+        for (let i = 0; i < this.allePlüschtiere.length; i++) {
+            const plüschtier = this.allePlüschtiere[i];
+            
+            if (this.teddy.stehtBei(plüschtier)) {
+                plüschtier.nehmen();
+                this.tönen("hm");
+            }
         }
     }
 
@@ -71,8 +80,8 @@ class SpielDarsteller {
 
         this.allePlüschtierDarsteller = [];
 
-        for (let i = 0; i < this.spiel.AllePlüschtiere.length; i++) {
-            const plüschtier = this.spiel.AllePlüschtiere[i];
+        for (let i = 0; i < this.spiel.allePlüschtiere.length; i++) {
+            const plüschtier = this.spiel.allePlüschtiere[i];
             this.allePlüschtierDarsteller.push(new PlüschtierDarsteller(plüschtier, this))
         }
     }

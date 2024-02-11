@@ -6,6 +6,11 @@ class Plüschtier {
         this.z = z;
         this.breite = breite;
         this.höhe = höhe;
+        this.genommen = false;
+    }
+
+    nehmen() {
+        this.genommen = true;
     }
 }
 
@@ -22,9 +27,19 @@ class PlüschtierDarsteller {
         spielDarsteller.document.getElementById("Welt").appendChild(divPlüschtier);
 
         this.divPlüschtier = divPlüschtier;
+        this.genommen = false;
     }
 
     darstellen() {
+        if (this.plüschtier.genommen && this.genommen == false) {
+            this.genommen = true;
+
+            this.spielDarsteller.document.getElementById("Welt").removeChild(this.divPlüschtier);
+            this.spielDarsteller.document.body.appendChild(this.divPlüschtier);
+
+            this.plüschtier.links = 0;
+        }
+
         this.divPlüschtier.style.left = this.plüschtier.links + "px";
         this.divPlüschtier.style.bottom = this.plüschtier.unten + "px";
         this.divPlüschtier.style.width = this.plüschtier.breite + "px";

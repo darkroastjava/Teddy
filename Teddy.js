@@ -104,6 +104,30 @@ class Teddy {
         return this.unten < 2;
     }
 
+    stehtBei(plüschtier) {
+        let plüschtierOben = plüschtier.unten + plüschtier.höhe;
+        let plüschtierRechts = plüschtier.links + plüschtier.breite;
+        let teddyLinks = this.links + 10;
+        let teddyRechts = this.links + this.breite - 10;
+        let teddyUnten = this.unten;
+        let teddyOben = this.unten + this.höhe;
+
+        if (teddyRechts < plüschtier.links) {
+            return false;
+        }
+        if (teddyLinks > plüschtierRechts) {
+            return false;
+        }
+        if (teddyUnten > plüschtierOben) {
+            return false;
+        }
+        if (teddyOben < plüschtier.unten) {
+            return false;
+        }
+
+        return true;
+    }
+
 }
 
 class TeddyDarsteller {
