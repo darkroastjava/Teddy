@@ -18,7 +18,7 @@ var Spielaufbau = {
         // [ name,      links,  unten,  z,  breite, höhe ]
         [   "Hängematte", 200,  100,    10, 200,    200 * 646 / 522 ],
         [   "Bett",       0,    0,      0,  533,    430 ],
-        [   "Bücherregal",700,  0,      5,  216,    430 ]
+        [   "Bücherregal",790,  0,      5,  216,    430 ]
     ],
     // [        links,  unten,  z,  breite, höhe ]
     Teddy: [    2860,   93,     25, 44,     62 ]
@@ -40,7 +40,7 @@ var ZusammengesetzteMöbelvorlagen = {
         [ "SofaArmlehneRechts", 424,    0,      2,  55,     237 ]
     ],
     Bett: [
-    
+        // [ name,              links,  unten,  z,  breite, höhe ]
         [ "Bett",               0,      0,      0,  1067,   861 ],  
         [ "BettSchublade1",     160,    0,      8,  256,    181 ],
         [ "BettSchublade2",     124,    181,    5,  242,    176 ],
@@ -48,6 +48,14 @@ var ZusammengesetzteMöbelvorlagen = {
         [ "BettSchublade4",     38,     543,    0,  214,    144 ],
         [ "BettGeländer",       0,      0,      26, 209,    859 ]
 
+    ],
+    Bücherregal: [
+        // [ name,              links,  unten,  z,  breite, höhe ]
+        [ "Bücherregal",        0,      0,      0,  390,    676 ],
+        [ "Bücherregal1",       0,      0,      0,  390,    280 ],
+        [ "Bücherregal2",       0,      280,    0,  390,    95  ],
+        [ "Bücherregal3",       0,      375,    0,  390,    96  ],
+        [ "Bücherregal4",       0,      471,    0,  390,    98  ]
     ]
 };
 
