@@ -7,10 +7,32 @@ class Plüschtier {
         this.breite = breite;
         this.höhe = höhe;
         this.genommen = false;
+        this.stehtAufEtwas = true;
+
+        this.amLaufen = 0;
     }
 
-    nehmen() {
+    folgen(teddy) {
         this.genommen = true;
+
+        this.teddy = teddy;
+        this.z = this.teddy.z - 1;
+        this.teddyBewegungen = [];
+    }
+
+    bewegen() {
+        if (!this.genommen) { return; }
+
+        let teddyStehtAufEtwas = this.teddy.stehtAufEtwas()
+        if (!teddyStehtAufEtwas || this.teddy.amLaufen) {
+            this.teddyBewegungen.push([ this.teddy.links, this.teddy.unten, this.teddy.amLaufen, teddyStehtAufEtwas ]);
+        }
+
+        if (this.teddyBewegungen.length > 50 || !this.stehtAufEtwas && this.teddyBewegungen.length > 0) {
+            [ this.links, this.unten, this.amLaufen, this.stehtAufEtwas ] = this.teddyBewegungen.shift();
+        } else {
+            this.amLaufen = false;
+        }
     }
 }
 
@@ -31,19 +53,29 @@ class PlüschtierDarsteller {
     }
 
     darstellen() {
-        if (this.plüschtier.genommen && this.genommen == false) {
-            this.genommen = true;
-
-            this.spielDarsteller.document.getElementById("Welt").removeChild(this.divPlüschtier);
-            this.spielDarsteller.document.body.appendChild(this.divPlüschtier);
-
-            this.plüschtier.links = 0;
-        }
-
         this.divPlüschtier.style.left = this.plüschtier.links + "px";
         this.divPlüschtier.style.bottom = this.plüschtier.unten + "px";
         this.divPlüschtier.style.width = this.plüschtier.breite + "px";
         this.divPlüschtier.style.height = this.plüschtier.höhe + "px";
         this.divPlüschtier.style["z-index"] = this.plüschtier.z;
+
+        if (this.plüschtier.amLaufen < 0) { this.spiegeln = -1; }
+        if (this.plüschtier.amLaufen > 0) { this.spiegeln = 1; }
+
+        // Lauf-Effekt (wackeln)
+        let rotate = "";
+
+        if (this.plüschtier.amLaufen && this.plüschtier.stehtAufEtwas) {
+            if (!this.gekipptSeit || this.gekipptSeit < Date.now() - 600) {
+                this.gekipptSeit = Date.now();
+            }
+            if ((Date.now() - this.gekipptSeit) % 200 < 100) {
+                rotate = "rotate(" + this.plüschtier.amLaufen * 5 + "deg)";
+            }
+        }
+
+        let scale = "scaleX(" + this.spiegeln + ")";
+
+        this.divPlüschtier.style.transform = rotate + " " + scale;
     }
 }
