@@ -1,11 +1,16 @@
 class Möbel {
-    constructor(name, links, unten, z, breite, höhe) {
+    constructor(name, links, unten, z, breite, höhe, kannDaraufStehen) {
         this.name = name;
         this.links = links;
         this.unten = unten;
         this.z = z;
         this.breite = breite;
         this.höhe = höhe;
+        if (typeof kannDaraufStehen == 'undefined') {
+            this.kannDaraufStehen = true;
+        } else {
+            this.kannDaraufStehen = kannDaraufStehen;
+        }
     }
 }
 

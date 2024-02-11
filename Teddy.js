@@ -74,6 +74,10 @@ class Teddy {
     }
 
     stehtAuf(möbel) {
+        if (!möbel.kannDaraufStehen) {
+            return false;
+        }
+
         let möbelOben = möbel.unten + möbel.höhe;
         let möbelRechts = möbel.links + möbel.breite;
         let teddyLinks = this.links + 10;

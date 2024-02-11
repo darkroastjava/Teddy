@@ -4,7 +4,7 @@ class Spiel {
     }
 
     aufbauen() {
-        let name, links, unten, z, breite, höhe;
+        let name, links, unten, z, breite, höhe, kannDaraufStehen;
 
         [ links, unten, z, breite, höhe ] = Spielaufbau.Teddy;
         this.teddy = new Teddy(links, unten, z, breite, höhe, this);
@@ -19,8 +19,8 @@ class Spiel {
                 const zusammengesetztesMöbel =
                     MöbelZusammensetzen(vorlage, links, unten, z, breite, höhe);
                 for (const teil of zusammengesetztesMöbel) {
-                    [ name, links, unten, z, breite, höhe ] = teil;
-                    this.alleMöbel.push(new Möbel(name, links, unten, z, breite, höhe));
+                    [ name, links, unten, z, breite, höhe, kannDaraufStehen ] = teil;
+                    this.alleMöbel.push(new Möbel(name, links, unten, z, breite, höhe, kannDaraufStehen));
                 }
             } else {
                 // Einteiliges Möbel
