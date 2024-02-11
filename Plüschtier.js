@@ -8,6 +8,7 @@ class Plüschtier {
         this.höhe = höhe;
         this.genommen = false;
         this.stehtAufEtwas = true;
+        this.stehtAufMöbel = "";
 
         this.amLaufen = 0;
     }
@@ -16,20 +17,29 @@ class Plüschtier {
         this.genommen = true;
 
         this.teddy = teddy;
-        this.z = this.teddy.z - 1;
+        this.teddy.followers.push(this);
+        this.followerNummer = this.teddy.followers.length;
+        this.z = this.teddy.z - this.followerNummer;
         this.teddyBewegungen = [];
     }
 
     bewegen() {
         if (!this.genommen) { return; }
 
+        // Wenn das Plüschtier "genommen" ist, folgt es dem Teddy: Alle Bewegungen des Teddys werden
+        // in eine "Queue" gespeichert, von der anderen Seite durch das Plüschtier wieder ausgelesen
+        // und übernommen. Die Queue wird erst konsumiert, wenn sie eine gewisse Länge hat, ausser, wenn
+        // das Plüschtier gerade im freien Fall ist, sonst würde es in der Luft steckenbleiben.
+
         let teddyStehtAufEtwas = this.teddy.stehtAufEtwas()
         if (!teddyStehtAufEtwas || this.teddy.amLaufen) {
-            this.teddyBewegungen.push([ this.teddy.links, this.teddy.unten, this.teddy.amLaufen, teddyStehtAufEtwas ]);
+            this.teddyBewegungen.push([ this.teddy.links, this.teddy.unten, this.teddy.amLaufen, teddyStehtAufEtwas, this.teddy.stehtAufMöbel ]);
         }
 
-        if (this.teddyBewegungen.length > 50 || !this.stehtAufEtwas && this.teddyBewegungen.length > 0) {
-            [ this.links, this.unten, this.amLaufen, this.stehtAufEtwas ] = this.teddyBewegungen.shift();
+        if (this.teddyBewegungen.length > this.followerNummer * 50
+             || !this.stehtAufEtwas && this.teddyBewegungen.length > 0) {
+
+            [ this.links, this.unten, this.amLaufen, this.stehtAufEtwas, this.stehtAufMöbel ] = this.teddyBewegungen.shift();
         } else {
             this.amLaufen = false;
         }

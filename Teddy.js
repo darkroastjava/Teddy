@@ -11,6 +11,7 @@ class Teddy {
         this.höhe = höhe;
         this.spiel = spiel;
         this.tempo = 1;
+        this.followers = [];
 
         this.amLaufen = Teddy.NEIN;
         this.amSpringen = Teddy.NEIN;
@@ -62,10 +63,12 @@ class Teddy {
         if (this.stehtAufBoden()) {
             return true;
         }
+        this.stehtAufMöbel = null;
         for (let i = 0; i < this.spiel.alleMöbel.length; i++) {
             const möbel = this.spiel.alleMöbel[i];
             
             if (this.stehtAuf(möbel)) {
+                this.stehtAufMöbel = möbel.name;
                 return true;
             }
         }

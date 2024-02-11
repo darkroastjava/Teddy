@@ -37,3 +37,18 @@
     height: 100%;
     z-index: 100;    
 }
+
+#Gewonnen {
+    transition: background-color 7s;
+    display: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+}
+
+#GewonnenImg {
+    transition: opacity 3s 6s;
+    opacity: 0;
+}

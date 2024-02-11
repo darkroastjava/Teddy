@@ -39,26 +39,45 @@ class Spiel {
         this.teddy.bewegen();
 
         if (this.teddy.stehtAufBoden()) {
-            document.getElementById("Verloren").style.display = "block";
+            this.verloren();
         }
+
+        let allePlüschtiereImBett = true; // Annahme
 
         for (let i = 0; i < this.allePlüschtiere.length; i++) {
             const plüschtier = this.allePlüschtiere[i];
 
             if (!plüschtier.genommen) {
+                allePlüschtiereImBett = false;
+
                 if (this.teddy.stehtBei(plüschtier)) {
                     plüschtier.folgen(this.teddy);
                     this.tönen("hm");
                 }
             } else {
                 plüschtier.bewegen();
+                if (plüschtier.stehtAufMöbel != "BettInnen") {
+                    allePlüschtiereImBett = false;
+                }
             }
+        }
+
+        if (allePlüschtiereImBett) {
+            this.gewonnen();
         }
     }
 
     tönen(ton) {
         let audio = new Audio("Töne/" + ton + ".wav");
         audio.play();
+    }
+
+    gewonnen() {
+        this.istGewonnen = true;
+    }
+
+    verloren() {
+        this.istVerloren = true;
     }
 }
 
@@ -91,6 +110,19 @@ class SpielDarsteller {
     }
 
     darstellen() {
+        if (this.spiel.istVerloren) {
+            document.getElementById("Verloren").style.display = "block";
+        }
+
+        if (this.spiel.istGewonnen) {
+            document.getElementById("Gewonnen").style.display = "block";
+            document.getElementById("Gewonnen").style.backgroundColor = "";
+            window.setTimeout(function() {
+                document.getElementById("Gewonnen").style.backgroundColor = "rgba(0,0,30,0.7)";
+                document.getElementById("GewonnenImg").style.opacity = "1";
+            }, 10);
+        }
+
         this.divWelt.style.left = this.spiel.links + "px";
         this.teddyDarsteller.darstellen();
         for (let i = 0; i < this.alleMöbelDarsteller.length; i++) {
@@ -142,6 +174,13 @@ class SpielSteuerung {
         this.timer = this.window.setInterval(() => {
             this.spiel.tick();
             this.spielDarsteller.darstellen();
+            if (this.spiel.istVerloren || this.spiel.istGewonnen) {
+                this.stoppeTimer();
+            }
         }, 10);
+    }
+
+    stoppeTimer() {
+        this.window.clearInterval(this.timer);
     }
 }
