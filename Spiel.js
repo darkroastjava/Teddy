@@ -31,6 +31,10 @@ class Spiel {
 
     tick() {
         this.teddy.bewegen();
+
+        if (this.teddy.stehtAufBoden()) {
+            document.getElementById("Verloren").style.display = "block";
+        }
     }
 
     tönen(ton) {
