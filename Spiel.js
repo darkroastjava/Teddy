@@ -45,7 +45,7 @@ class Spiel {
         for (let i = 0; i < this.allePlüschtiere.length; i++) {
             const plüschtier = this.allePlüschtiere[i];
             
-            if (this.teddy.stehtBei(plüschtier)) {
+            if (!plüschtier.genommen && this.teddy.stehtBei(plüschtier)) {
                 plüschtier.nehmen();
                 this.tönen("hm");
             }

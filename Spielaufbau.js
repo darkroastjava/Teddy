@@ -25,13 +25,13 @@ var Spielaufbau = {
     Plüschtiere: [
         // ---- Wohnzimmer ----
         // [ name,      links,  unten,  z,  breite, höhe ]
-        [   "Fuchs",    830,   425,      30, 50,    64 ]
 
         // ---- Gang ----
         // [ name,      links,  unten,  z,  breite, höhe ]
 
         // ---- Kinderzimmer ----
         // [ name,      links,  unten,  z,  breite, höhe ]
+        [   "Fuchs",    830,   425,      30, 50,    64 ]
     ],
 
     // [        links,  unten,  z,  breite, höhe ]
