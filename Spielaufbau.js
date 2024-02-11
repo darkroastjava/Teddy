@@ -21,6 +21,19 @@ var Spielaufbau = {
         [   "Bücherregal",790,  0,      5,  216,    430 ],
         [   "Pult",       450,  5,      0,  307,    196 ]
     ],
+
+    Plüschtiere: [
+        // ---- Wohnzimmer ----
+        // [ name,      links,  unten,  z,  breite, höhe ]
+        [   "Fuchs",    830,   425,      30, 50,    64 ]
+
+        // ---- Gang ----
+        // [ name,      links,  unten,  z,  breite, höhe ]
+
+        // ---- Kinderzimmer ----
+        // [ name,      links,  unten,  z,  breite, höhe ]
+    ],
+
     // [        links,  unten,  z,  breite, höhe ]
     Teddy: [    2860,   93,     25, 44,     62 ]
 }

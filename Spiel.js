@@ -27,6 +27,12 @@ class Spiel {
                 this.alleMöbel.push(new Möbel(name, links, unten, z, breite, höhe));
             }
         }
+
+        this.AllePlüschtiere = [ ];
+        for (const plüschtier of Spielaufbau.Plüschtiere) {
+            [ name, links, unten, z, breite, höhe ] = plüschtier;
+            this.AllePlüschtiere.push(new Plüschtier(name, links, unten, z, breite, höhe));
+        }
     }
 
     tick() {
@@ -62,6 +68,13 @@ class SpielDarsteller {
             const möbel = this.spiel.alleMöbel[i];
             this.alleMöbelDarsteller.push(new MöbelDarsteller(möbel, this))
         }
+
+        this.allePlüschtierDarsteller = [];
+
+        for (let i = 0; i < this.spiel.AllePlüschtiere.length; i++) {
+            const plüschtier = this.spiel.AllePlüschtiere[i];
+            this.allePlüschtierDarsteller.push(new PlüschtierDarsteller(plüschtier, this))
+        }
     }
 
     darstellen() {
@@ -70,6 +83,10 @@ class SpielDarsteller {
         for (let i = 0; i < this.alleMöbelDarsteller.length; i++) {
             const MöbelDarsteller = this.alleMöbelDarsteller[i];
             MöbelDarsteller.darstellen();
+        }
+        for (let i = 0; i < this.allePlüschtierDarsteller.length; i++) {
+            const PlüschtierDarsteller = this.allePlüschtierDarsteller[i];
+            PlüschtierDarsteller.darstellen();
         }
     }
 }
