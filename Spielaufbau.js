@@ -32,14 +32,14 @@ var Spielaufbau = {
         
         // ---- Kinderzimmer ----
         // [ name,      links,  unten,  z,  breite, höhe ]
-        [   "Fuchs",    830,    425,    30, 50,     64 ],
+        [   "Fuchs",    200,    100,    30, 50,     64 ],
         [   "Fuchs",    830,    232,    30, 50,     64 ],
-        [   "Fuchs",    200,    100,    0,  50,     64 ]
+        [   "Kroki",    830,    425,    0,  115,    45 ]
     ],
 
 
     // [        links,  unten,  z,  breite, höhe ]
-    Teddy: [    2860,   93,     25, 44,     62 ]
+    Teddy: [    2860,   93,     25, 172 * (80 / 219),     80 ]
 }
 
 
